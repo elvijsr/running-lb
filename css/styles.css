@@ -1,0 +1,87 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- Tab Styles --- */
+.tab-btn {
+    padding: 0.5rem 1rem;
+    border-bottom-width: 2px;
+    border-color: transparent;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6b7280; /* gray-500 */
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 6px 6px 0 0;
+}
+
+.tab-btn:hover {
+    background-color: #f3f4f6; /* gray-100 */
+    color: #374151; /* gray-700 */
+}
+
+.tab-btn.active-tab {
+    color: #4f46e5; /* indigo-600 */
+    border-color: #6366f1; /* indigo-500 */
+    background-color: #fff;
+}
+
+/* --- IMPROVED CSS --- */
+/* Use :has() to style the parent LI when the checkbox is checked. */
+/* This removes the need for the .completed-task class in JS. */
+li:has(.task-checkbox:checked) {
+    text-decoration: line-through;
+    color: #9ca3af; /* gray-400 */
+}
+
+li:has(.task-checkbox:checked) .font-semibold {
+    font-weight: 400; /* Make bold text normal weight when completed */
+}
+
+.exercise-card {
+    border: 1px solid #e5e7eb; /* gray-200 */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #f9fafb; /* gray-50 */
+}
+
+@media (min-width: 768px) { /* Corresponds to md: breakpoint */
+    .exercise-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid #e5e7eb; /* gray-200 */
+        background-color: transparent;
+    }
+
+    .exercise-card:hover {
+        background-color: #f9fafb; /* gray-50 */
+    }
+}
+
+/* --- Progress Dashboard Styles --- */
+
+#progress-dashboard .rounded-xl {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#progress-dashboard .rounded-xl:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+}
+
+/* Set a minimum height for chart containers to prevent layout shifts */
+#consistency-chart, #adherence-chart, #trend-chart {
+    min-height: 250px;
+    width: 100%;
+}
+
+@media (min-width: 1024px) { /* On larger screens, the trend chart can be taller */
+    #trend-chart {
+        min-height: 320px;
+    }
+}
